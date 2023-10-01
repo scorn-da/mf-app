@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 const App = () => (
   <div className="text-3xl mx-auto max-w-6xl">
-    <Header app={{ name: 'home' }} />
+    <Header />
     <div className="my-10">Home page content</div>
     <Footer />
   </div>
