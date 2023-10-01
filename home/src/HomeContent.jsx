@@ -14,6 +14,13 @@ const HomeContent = () => {
       {products?.map((product) => (
         <li key={product.id}>
           <img src={product.image} alt={product.name} />
+          <span className="flex">
+            <b className="flex-grow font-bold">
+              <a href={`/products/${product.id}`}>{product.name}</a>
+            </b>
+            <i className="flex-end">{currency.format(product.price)}</i>
+          </span>
+          <span className="text-sm mt-4">{product.description}</span>
         </li>
       ))}
     </ul>
