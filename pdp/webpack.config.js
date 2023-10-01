@@ -44,7 +44,7 @@ module.exports = (_, argv) => ({
       name: "pdp",
       filename: "remoteEntry.js",
       remotes: {
-        home: JSON.stringify("home@http://localhost:3000/remoteEntry.js"),
+        home: 'home@http://localhost:3000/remoteEntry.js',
       },
       exposes: {},
       shared: {
