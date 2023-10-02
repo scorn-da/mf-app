@@ -1,6 +1,7 @@
 import {
-  Controller,
-  Get,
+  Body,
+  Controller, Delete,
+  Get, Post, Req,
   Request,
   UseGuards,
 } from '@nestjs/common';
@@ -36,5 +37,28 @@ export class CartController {
   @UseGuards(JwtAuthGuard)
   async index(@Request() req): Promise<Cart> {
     return this.carts[req.user.userId] ?? { cartItems: [] };
+  }
+
+  @Post()
+  @UseGuards(JwtAuthGuard)
+  async create(@Request() req, @Body() { id}: { id: string }): Promise<Cart> {
+    const cart = this.carts[req.user.userId];
+    const cartItem = cart.cartItems.find((cartItem) => cartItem.id === parseInt(id));
+    if (cartItem) {
+      cartItem.quantity += 1;
+    } else {
+      cart.cartItems.push({
+        ...products.find((product) => product.id == parseInt(id)),
+        quantity: 1,
+      })
+    }
+    return cart;
+  }
+
+  @Delete()
+  @UseGuards(JwtAuthGuard)
+  async destroy(@Request() req): Promise<Cart> {
+    this.carts[req.user.userId] = { cartItems: [] };
+    return this.carts[req.user.userId];
   }
 }
