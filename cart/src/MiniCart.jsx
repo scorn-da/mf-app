@@ -8,7 +8,7 @@ const MiniCart = () => {
 
   useEffect(() => {
     setItems(cart.value?.cartItems);
-    return cart.subscribe((c) => {
+    cart.subscribe((c) => {
       setItems(c?.cartItems);
     })
   }, []);
@@ -29,7 +29,7 @@ const MiniCart = () => {
                 style={{
                   width: 300,
                   top: "2rem",
-                  // left: -250,
+                  left: -250,
                 }}
             >
               <div
