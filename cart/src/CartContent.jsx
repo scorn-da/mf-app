@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Login from "./Login";
 import { jwt } from "./cart";
+import MiniCart from "./MiniCart";
 
 const CartContent = () => {
   const [ token, setToken ] = useState("");
@@ -14,6 +15,7 @@ const CartContent = () => {
       <div></div>
       JWT: {token}
       <Login />
+      <MiniCart/>
     </div>
   );
 };
