@@ -36,10 +36,10 @@ const Login = () => {
             placeholder="Password"
             value={password}
             onChange={(evt) => setPassword(evt.target.value)}
-            className="border text-sm border-gray-400 p-2 rounded-md w-full"
+            className="border text-sm border-gray-400 p-2 rounded-md w-full mt-3"
           />
           <button
-            className="bg-green-900 text-white py-2 px-5 rounded-md"
+            className="bg-green-900 text-white py-2 px-5 rounded-md text-sm mt-5"
             onClick={() => login(username, password)}
             id="loginbtn"
           >

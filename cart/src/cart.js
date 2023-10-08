@@ -59,9 +59,8 @@ export const login = (username, password) =>
   })
     .then((res) => res.json())
     .then((data) => {
-      jwt.next(data.access_token)
+      jwt.next(data.access_token);
       getCart();
-
       return data.access_token;
     });
 
@@ -71,7 +70,7 @@ export function useLoggedIn() {
     setLoggedIn(!!jwt.value);
     jwt.subscribe((c) => {
       setLoggedIn(!!jwt.value);
-    })
+    });
   }, []);
   return loggedIn;
 }
